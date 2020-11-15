@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+
+<script>
+	 var regx = /([0-9\.]+)|([ \t]+)|([\r\n]+)|(\*)|(\/)|(\+)|(\-)/g;
+	 var dictionary = ['Number', 'WhiteSpace', 'LineTermiator', '*', '/', '+', '-'];
+
+	 function tokenSize(source) {
+		var result = null;
+		while(true) {
+			result = regx.exec(source);
+			if(!result) break;
+			for(var i = 1; i <= dictionary.length; i++) {
+				if(result[i]) {
+					console.log(dictionary[i - 1])
+				}
+				console.log(result)
+			}
+		}
+	 }
+	 tokenSize('1024 + 10 * 25')
+</script>
+</html>
